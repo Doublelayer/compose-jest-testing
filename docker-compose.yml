@@ -1,0 +1,16 @@
+version: '3'
+services:
+  jungheinrich-test: # docker-compose run jungheinrich-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test
+    image: jh-e2e-test
+    volumes:
+      - "../jungheinrich/specs/:/app/specs/"
+      - "../jungheinrich/snapshots:/app/snapshots/"
+      - "../jungheinrich/html-report:/app/html-report/"
+
+    #command: sh -c "npm run test"
+    command: sh -c "npm run test"
+
